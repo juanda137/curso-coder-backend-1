@@ -31,8 +31,6 @@ router.get("/carts/:cid", async (req, res) => {
 router.post("/carts/:cid/product/:pid", async (req, res) => {
   try {
     const { cid, pid } = req.params;
-    // Chequear que el producto y el carrito existan y sino devolver un status 404 indicando los errores
-    // if(!cart) return res.status(404).json({status: "error", msg: "Carrito no encontrado"})
     const cart = await cartManager.addProductToCart(cid, pid);
 
     res.status(201).json({ status: "ok", cart });

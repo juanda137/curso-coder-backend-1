@@ -5,7 +5,6 @@ const path = "./src/managers/data/products.json";
 
 let products = [];
 
-// Agregar un product
 
 const addProduct = async (product) => {
   try {
@@ -36,10 +35,8 @@ const addProduct = async (product) => {
   }
 };
 
-// Leer products
 const getProducts = async (limit) => {
 
-  // Devolver la cantidad de productos que se reciba por query en el limit 
   try {
     const fileJson = await fs.promises.readFile(path, "utf-8");
     const parseFile = JSON.parse(fileJson);
@@ -50,8 +47,6 @@ const getProducts = async (limit) => {
     console.log(`${error}`);
   }
 };
-
-// Leer un product por id
 
 const getProductById = async (id) => {
   try {
@@ -64,8 +59,6 @@ const getProductById = async (id) => {
     console.log(`${error}`);
   }
 };
-
-// Actualizar un product
 
 const updateProduct = async (id, productData) => {
   try {
@@ -84,8 +77,6 @@ const updateProduct = async (id, productData) => {
     console.log(`${error}`);
   }
 };
-
-// Eliminar un product
 
 const deleteProduct = async (id) => {
   try {
