@@ -34,15 +34,19 @@ const getCartById = async (cid) => {
 const addProductToCart = async (cid, pid) => {
   await getCars();
   const cart = await getCartById(cid);
-  // Modificar para chequear que el producto existe y aumentar la quantity
-  const product = {
-    product: pid,
-    quantity: 1
-  }
+  const productoIndex = cart.products.findIndex(p.product === pid)
 
-  cart.products.push(product);
-  await fs.promises.writeFile(path, JSON.stringify(carts));
-  return cart
+  if (productoIndex > -1) {
+    cart.products[productoIndex].quantity += 1;
+  } else {
+    const product = {
+      product: pid,
+      quantity: 1
+    };
+    cart.products.push(product);
+    await fs.promises.writeFile(path, JSON.stringify(carts));
+    return cart
+  }
 }
 
 export default {
