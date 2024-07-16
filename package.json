@@ -1,0 +1,17 @@
+{
+  "name": "curso-coder-backend-pre-entrega-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.3",
+    "socket.io": "^4.7.5"
+  }
+}
